@@ -9,7 +9,7 @@ const helmet = require('helmet')
 
 const app = express()
 const router = express.Router()
-const url = process.env.MONGODB_URI
+const url = process.env.MONGODB_URI || "mongodb://localhost:27017/salesforce-ui-test"
 
 /** connect to MongoDB datastore */
 try {
@@ -20,7 +20,7 @@ try {
     
 }
 
-let port = process.env.PORT
+let port = process.env.PORT || 5000
 
 /** set up routes {API Endpoints} */
 routes(router)
@@ -29,7 +29,6 @@ routes(router)
 app.use(cors())
 app.use(bodyParser.json())
 app.use(helmet())
-//app.use('/static',express.static(path.join(__dirname,'static')))
 
 app.use('/api', router)
 
