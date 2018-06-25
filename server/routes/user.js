@@ -28,7 +28,7 @@ module.exports = (router) => {
     //delete user
     router
         .route('/user/:id')
-        .remove(userController.deleteUser)
+        .delete(userController.deleteUser)
 
     //subscribe to a user
     router

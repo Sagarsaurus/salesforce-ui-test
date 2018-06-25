@@ -28,7 +28,7 @@ module.exports = (router) => {
     //delete story
     router
         .route('/story/:id')
-        .remove(storyController.deleteStory)
+        .delete(storyController.deleteStory)
 
     //upvote a story
     router
