@@ -33,7 +33,7 @@ module.exports = {
 
     //second CRUD operation, return a specific user
     getUser: (request, response, next) => {
-        User.findById(request.params.id).then((user) => {
+        User.findById(request.params.id, (error, user) => {
             if (error)
                 response.send(error)
             else if (!user)
@@ -60,6 +60,9 @@ module.exports = {
     //third CRUD operation, update user
     updateUser: (request, response, next) => {
         //TODO
+        let { name, email, token } = request.body
+
+        User.findByIdAndUpdate(request.params.id, request)
     },
 
     //final CRUD operation, delete user
@@ -74,5 +77,9 @@ module.exports = {
     //get all followers
     getFollowers: (request, response, next) => {
         //TODO
+    },
+
+    addStory: (request, response, next) => {
+        
     }
 }

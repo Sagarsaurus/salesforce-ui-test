@@ -72,7 +72,7 @@ module.exports = {
     },
 
     upvoteStory: (request, response, next) => {
-        Story.findById(req.body.story_id).then((story)=> {
+        Story.findById(req.body.story_id).then((error, story)=> {
             return story.upvote().then(()=>{
                 return response.json({message: "Upvoted"})
             })
