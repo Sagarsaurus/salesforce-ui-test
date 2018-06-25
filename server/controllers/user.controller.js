@@ -44,6 +44,7 @@ module.exports = {
 
     //useful function for later, return all users
     getAllUsers: (request, response, next) => {
+        console.log('got here')
         Story.find({}, (error, users)=> {
             if (error)
                 response.send(error)
