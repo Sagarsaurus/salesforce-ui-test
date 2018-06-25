@@ -7,9 +7,11 @@ const fs = require('fs')
 module.exports = {
     //first of CRUD operations, we create a user
     createUser: (request, response, next) => {
+        console.log(request.body)
         let { name, email, token } = request.body
         if (name && email ) {
                 let user = { name, email, token }
+                console.log(user)
                 saveUser(user)
         }else {
             alert("Missing a required parameter for user creation!")
@@ -44,7 +46,7 @@ module.exports = {
 
     //useful function for later, return all users
     getAllUsers: (request, response, next) => {
-        Story.find({}, (error, users)=> {
+        User.find({}, (error, users)=> {
             if (error)
                 response.send(error)
             else if (!users)
