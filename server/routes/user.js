@@ -8,7 +8,7 @@ module.exports = (router) => {
     //create a user
     router
         .route('/user')
-        .post(multipartWare, userController.createStory)
+        .post(multipartWare, userController.createUser)
 
     //get specific user
     router
