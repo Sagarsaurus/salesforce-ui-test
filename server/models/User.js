@@ -20,13 +20,13 @@ let UserModel = new mongoose.Schema(
         ]
     }
 )
-UserSchema.methods.subscribe = function (user) {
+UserModel.methods.subscribe = function (user) {
     if (this.subscribedTo.indexOf(user) === -1) {
         this.subscribedTo.push(user)        
     }
     return this.save()
 }
-UserSchema.methods.addFollower = function (follower) {
+UserModel.methods.addFollower = function (follower) {
     this.followedBy.push(follower)        
 }
 module.exports = mongoose.model('User', UserModel)
