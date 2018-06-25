@@ -38,6 +38,6 @@ module.exports = (router) => {
     //get all followers
     router
         .route('/user/:id/followers')
-        .post(userController.getFollowers)
+        .get(userController.getFollowers)
 
 }
